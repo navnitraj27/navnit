@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patterned Background</title>
+    <style>
+        canvas {
+            background-color: rgb(102, 219, 92);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Set canvas size to 300x300 -->
+    <canvas id="c1" height="300" width="300" style="border:3px solid rgb(243, 17, 17)"></canvas>
+
+    <script>
+        // Get the canvas and context
+        let canvas = document.getElementById("c1");
+        let ctx = canvas.getContext("2d");
+
+        // Rectangle dimensions
+        let rectWidth = 150;
+        let rectHeight = 100;
+
+        // Calculate center coordinates for the rectangle
+        let centerX = canvas.width / 2;
+        let centerY = canvas.height / 2;
+
+        // Calculate top-left corner to keep the rectangle centered
+        let rectX = centerX - rectWidth / 2;
+        let rectY = centerY - rectHeight / 2;
+
+        // Create a pattern
+        const patternCanvas = document.createElement('canvas');
+        patternCanvas.width = 20;
+        patternCanvas.height = 20;
+        const patternCtx = patternCanvas.getContext('2d');
+        patternCtx.fillStyle = 'orange';
+        patternCtx.fillRect(0, 0, 20, 20);
+        patternCtx.strokeStyle = 'white';
+        patternCtx.lineWidth = 2;
+        patternCtx.moveTo(0, 0);
+        patternCtx.lineTo(20, 20);
+        patternCtx.moveTo(20, 0);
+        patternCtx.lineTo(0, 20);
+        patternCtx.stroke();
+
+        // Apply the pattern
+        const pattern = ctx.createPattern(patternCanvas, 'repeat');
+        ctx.fillStyle = pattern;
+        ctx.fillRect(75, 100, 150, 100);    //rectX, rectY, rectWidth, rectHeight
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectangle</title>
+</head>
+
+<body>
+    <canvas id="c1" height="300" width="300" style="border:4px solid rgb(0, 243, 243)"></canvas>
+
+    <script>
+        x = document.getElementById("c1");
+        cx = x.getContext("2d");
+
+        cx.translate(150,150);
+
+        cx.rotate(( Math.PI /6));
+        cx.scale(1.2,1.2);
+
+        let gradient = cx.createLinearGradient(-75, -50, 75, 50);
+        gradient.addColorStop(0, "green");
+        gradient.addColorStop(1, "yellow");
+        cx.fillStyle = gradient;
+
+        cx.beginPath();
+        cx.rect(-75, -50, 150, 100); // Rectangle centered at (0,0) after translation
+        cx.fill();
+        cx.stroke();
+
+        // cx.fillStyle="white"
+        cx.font = "20px Arial";
+        cx.strokeStyle = "white";  // Text outline color
+        cx.textAlign = "center";
+        cx.strokeText("Rectangle ", 0, 0);  // Centered 
+
+        cx.setTransform(1, 0, 0, 1, 0, 0);
+    </script>
+</body>
+
+</html>

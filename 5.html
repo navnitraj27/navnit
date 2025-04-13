@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text-With Shadow</title>
+</head>
+
+<body>
+    <canvas id="c1" height="300" width="300" style="border:4px solid rgb(0, 243, 243)"></canvas>
+
+    <script>
+        // Get the canvas and context
+        x = document.getElementById("c1");
+        cx = x.getContext("2d");
+
+        // Set text properties
+        cx.font = "40px Arial";
+        cx.fillStyle = "blue";  // Text color
+        cx.textAlign = "center";
+
+        // Add shadow effect
+        cx.shadowColor = "gray";  // Shadow color
+        cx.shadowBlur = 5.5;       // Blurry effect
+        cx.shadowOffsetX = 5;     // Move shadow right
+        cx.shadowOffsetY = 7.5;     // Move shadow down
+
+        // Draw the text at the center of the canvas
+        cx.fillText("Hello World!", 150, 150);
+
+    </script>
+</body>
+</html>

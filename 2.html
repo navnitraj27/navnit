@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle</title>
+    <style>
+        canvas {
+            background-color: rgb(161, 163, 161);
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="c1" height="350" width="300" style="border:3px solid rgb(2, 255, 44)"></canvas>
+
+    <script>
+        x = document.getElementById("c1");
+        cx = x.getContext("2d");
+        let gradient = cx.createRadialGradient(150, 175, 10, 155, 170,90);
+        gradient.addColorStop(0, "yellow");
+        gradient.addColorStop(1, "red");
+        cx.fillStyle = gradient;
+
+        cx.beginPath();
+        cx.arc(150, 175, 90, 0, 2 * Math.PI);
+        cx.fill();
+        cx.stroke();
+
+    </script>
+</body>
+
+</html>
